@@ -1,0 +1,16 @@
+version: "3.5"
+
+services:
+  # 本地开发(Mac环境)
+  hyperf-server:
+    build: .
+    container_name: hyperf-server
+    ports:
+      - "9500:9501"
+    networks:
+      - proxy
+    volumes:
+      - $PWD:/opt/www
+networks:
+  proxy:
+    external: true
