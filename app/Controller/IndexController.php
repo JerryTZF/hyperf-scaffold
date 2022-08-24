@@ -11,9 +11,12 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use JetBrains\PhpStorm\ArrayShape;
+
 class IndexController extends AbstractController
 {
-    public function index()
+    #[ArrayShape(['method' => 'string', 'message' => 'string'])]
+    public function index(): array
     {
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
